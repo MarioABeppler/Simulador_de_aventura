@@ -1,3 +1,11 @@
+--Dependencies
+local Gamedata = require ("game_data")
+
+-- Create Gamedata
+local gameData = Gamedata:new() ---@type GameData
+_G.game = gameData
+
+
 --[[
 
     Pseudo Código

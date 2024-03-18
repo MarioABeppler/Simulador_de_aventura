@@ -22,5 +22,4 @@ function Choice:runCondition()
     ---TODO
     return true
 end
-
 return Choice

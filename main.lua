@@ -5,14 +5,9 @@ local Gamedata = require ("game_data")
 local gameData = Gamedata:new() ---@type GameData
 _G.game = gameData
 
-
 --[[
 
     Pseudo Código
-
-    Create Gamedata
-    GameData (Escopo Global / singleton)
-    game
 
     --Criate / Load Nodes
     createNode()

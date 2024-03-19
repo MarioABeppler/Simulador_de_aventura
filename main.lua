@@ -1,18 +1,24 @@
 --Dependencies
 local Gamedata = require ("game_data")
+local nodeLoader = require("node_loader")
+
+-- Enable warnings
+warn("@on")
 
 -- Create Gamedata
 local gameData = Gamedata:new() ---@type GameData
 _G.game = gameData
 
+--Load nodes
+nodeLoader.loadNodes()
+for id, node in pairs(nodeLoader.getNodes()) do
+    print(id ..": " .. node.title)
+end
+
 --[[
 
     Pseudo Código
 
-    --Criate / Load Nodes
-    createNode()
-    loadNode() -- Lista com todods os nodes do simulador
-    getinitialNOde() -- Node (um item só)
 
     -- Motor do Simulador (enginer)
     mainloop

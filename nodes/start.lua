@@ -1,5 +1,5 @@
 -- Constants
-local ID = "START"
+local ID = "start"
 
 --Dependencies
 local Node = require("node")

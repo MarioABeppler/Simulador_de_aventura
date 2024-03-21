@@ -1,9 +1,14 @@
 --Dependencies
 local Gamedata = require ("game_data")
+local Engine = require("engine")
 local nodeLoader = require("node_loader")
+local utils = require("utils")
 
 -- Enable warnings
 warn("@on")
+
+-- Enable UTF-8
+utils.enableUtf8()
 
 -- Create Gamedata
 local gameData = Gamedata:new() ---@type GameData
@@ -11,24 +16,8 @@ _G.game = gameData
 
 --Load nodes
 nodeLoader.loadNodes()
-for id, node in pairs(nodeLoader.getNodes()) do
-    print(id ..": " .. node.title)
-end
+game.activeNode = nodeLoader.getinitialNOde()
 
---[[
-
-    Pseudo Código
-
-
-    -- Motor do Simulador (enginer)
-    mainloop
-        Caso a gente tenho um node ativo (propriedade do Gamedata)
-        print do node
-        mostras escolhas
-        perguntar qual escolha o usuario quer tomar
-        avançar pro proximo node
-        condição de vitoria e derrota
-    end
-
-
-]]
+-- Strat Engine
+local engine = Engine:new() ---type Engine
+engine:runMainLoop()

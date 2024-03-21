@@ -9,32 +9,38 @@ function Engine:initialize()
 end
 
 function Engine:runMainLoop()
-    local node = game.activeNode
     
     -- Loop Principal
     while not game.isOver do
+
+        -- Get active node
+        local node = game.activeNode
+
         -- Limpar o terminal
         -- TODO
 
         -- print do node
         self:printNode(node)
-        -- TODO
 
         -- Obter escolhas Validas
         local validChoices = self:getValidChoices(node)
 
         -- mostras escolhas
         self:showChoices(validChoices)
-        -- TODO
 
         -- Perguntar o usuario
-        -- TODO
+        local choiceIndex = self:askForImput(#validChoices)
+        local choice = validChoices[choiceIndex]
 
         -- Avança proximo Node
+        local destinationId = choice.destination
+        local destinatonNode = nodeLoader.getNode(destinationId)
+        game.activeNode = destinatonNode
+
         -- TODO
 
         --TODO condição de vitoria e derrota
-        game.isOver = true -- Debug Aqui a gente incerra o jogo
+        -- game.isOver = true -- Debug Aqui a gente incerra o jogo
     end
 end
 
@@ -45,7 +51,7 @@ function Engine:printNode(node)
     end
     print("==== " .. node.title)
     print(node.description)
-    print("============================================================")  
+    print("============================================================")
 end
 
 ---@param node Node
@@ -64,6 +70,21 @@ end
 function Engine:showChoices(choices)
     for i, choice in pairs(choices) do
          print(string.format("%d) %s", i, choice.description))
+    end
+end
+
+---@param amount number
+---@return number
+function Engine:askForImput(amount)
+    while true do
+        io.write("> ")
+        local answerString = io.read()
+        local answer = tonumber(answerString)
+        local isAnswerValid = answer ~= nil and answer >= 1 and answer <= amount
+        if isAnswerValid then
+            return answer
+        end
+        print(" Resposta Invalida, Tente novamente.")
     end
 end
 

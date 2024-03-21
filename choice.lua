@@ -5,7 +5,7 @@ local Choice = class("Choice")
 
 function Choice:initialize(destination, description, condition)
     self.description = description ---@type string
-    self.destinations = destination ---@type string
+    self.destination = destination ---@type string
     self.condition = condition
 end
 

@@ -18,6 +18,11 @@ _G.game = gameData
 nodeLoader.loadNodes()
 game.activeNode = nodeLoader.getinitialNOde()
 
+-- Check for erros in NodeLoader
+if nodeLoader.hasErrors() then
+    print("Encontrado errors no NodeLoader, Abortando execução!")
+    os.exit()
+end
 -- Strat Engine
 local engine = Engine:new() ---type Engine
 engine:runMainLoop()

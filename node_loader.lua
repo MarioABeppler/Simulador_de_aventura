@@ -2,6 +2,7 @@ local nodeloader = {}
 
 local nodeDictionary = {} ---@type table<string,Node>
 local initialNode = nil ---@type Node
+local hasErrors = false 
 
 local function loadNode(path)
     local success, nodeOrErr = pcall(function ()
@@ -9,11 +10,13 @@ local function loadNode(path)
     end)
     if not success then
         warn("falha ao carregar o node " .. path .. ". O Arquivo não foi encontrado.")
+        hasErrors = true
         return
     end
     local node = nodeOrErr ---@type Node
     if nodeDictionary[node.id] ~= nil then
         warn("falha ao carregar o node " .. path .. ". O ID " .. node.id .. " já está registrado.")
+        hasErrors = true
         return
     end
     nodeDictionary[node.id] = node
@@ -30,6 +33,20 @@ function nodeloader.loadNodes()
     -- Load other nodes
     loadNode("nodes.cerverom.start")
     loadNode("nodes.ice_meteor.start")
+    loadNode("nodes.ice_meteor.congelou")
+
+    -- Validate destination
+    for id, node in pairs(nodeDictionary) do
+        for _, choice in pairs(node.choices) do
+            local destinationId = choice.destination
+            local destinationNode = nodeDictionary[destinationId]
+            if destinationNode == nil then
+                warn(string.format("Uma das escolhas do node %s tem como destino um node inexistente: %s", node.id, destinationId))
+                hasErrors = true
+            end
+        end
+    end
+
 end
 
 
@@ -51,6 +68,13 @@ end
 ---@return Node
 function nodeloader.getinitialNOde()
     return initialNode
+end
+
+
+---Retorna se esse modulo encontrou erros durante sua execução
+---@return boolean
+function nodeloader.hasErrors()
+    return hasErrors
 end
 
 return  nodeloader

@@ -9,7 +9,7 @@ local Choice = require("choice")
 local node = Node:new(ID) ---@type Node
 node.title = "Uma Nova Aventura"
 node.description = "Após vários dias de bebedeira com seus amigos, vocês decidem se aventurar no mar como Grandes Piratas. Mas diga-me, para onde vocês vão primeiro? "
-node.header= [[
+node.header= [[%{magenta}
 ,---.o          |             |                  |     
 `---..,-.-..   .|    ,---.,---|,---.,---.    ,---|,---.
     ||| | ||   ||    ,---||   ||   ||        |   ||---'

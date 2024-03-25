@@ -10,21 +10,21 @@ local node = Node:new(ID) ---@type Node
 node.title = "Ilha Cerverom"
 node.description = "Os desertos de Cerverom têm uma temperatura escaldante, você não vê um pingo de água e nem uma mísera pessoa, sua intuição diz que tem algo de errado."
 node.header= [[
-    .    _    +     .  ______   .          .
- (      /|\      .    |      \      .   +
-     . |||||     _    | |   | | ||         .
-.      |||||    | |  _| | | | |_||    .
-   /\  ||||| .  | | |   | |      |       .
-__||||_|||||____| |_|_____________\__________
-. |||| |||||  /\   _____      _____  .   .
-  |||| ||||| ||||   .   .  .         ________
- . \|`-'|||| ||||    __________       .    .
-    \__ |||| ||||      .          .     .
- __    ||||`-'|||  .       .    __________
-.    . |||| ___/  ___________             .
-   . _ ||||| . _               .   _________
-_   ___|||||__  _ \\--//    .          _
-     _ `---'    .)=\oo|=(.   _   .   .    .
+    .    %{green}_%{white}    +     .  ______   .          .
+ (      %{green}/|\%{white}      .    |      \      .   +
+     . %{green}|||||%{white}     _    | |   | | ||         .
+.      %{green}|||||%{white}    | |  _| | | | |_||    .
+%{green}   /\  |||||%{white} .  | | |   | |      |       .
+__%{green}||||_|||||%{white}____| |_|_____________\__________
+. %{green}|||| |||||  /\%{white}   _____      _____  .   .
+%{green}  |||| ||||| ||||%{white}   .   .  .         ________
+ . %{green}\|`-'|||| ||||%{white}    __________       .    .
+ %{green}   \__ |||| ||||%{white}      .          .     .
+ __    %{green}||||`-'|||%{white}  .       .    __________
+.    . %{green}|||| ___/%{white}  ___________             .
+   . _ %{green}|||||%{white} . _               .   _________
+_   ___%{green}|||||%{white}__  _ \\--//    .          _
+     _ %{green}`---'%{white}    .)=\oo|=(.   _   .   .    .
 _  ^      .  -    . \.|
 ]]
 

@@ -1,3 +1,4 @@
+-- Constants
 local ID = "iceMeteor.congelou"
 
 --Dependencies

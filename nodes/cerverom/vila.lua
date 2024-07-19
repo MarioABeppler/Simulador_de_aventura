@@ -22,7 +22,7 @@ table.insert(node.choices, Choice:new(
 
 table.insert(node.choices, Choice:new(
     "cerverom.planicies",
-    "As Grandes planícies"
+    "As Grandes Planícies"
 ))
 
 return node

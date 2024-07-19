@@ -8,7 +8,11 @@ local Choice = require("choice")
 -- Create node
 local node = Node:new(ID) ---@type Node
 node.title = "Ilha Cerverom"
-node.description = "Os desertos de Cerverom têm uma temperatura escaldante, você não vê um pingo de água e nem uma mísera pessoa, sua intuição diz que tem algo de errado."
+node.description = [[
+   Os desertos de Cerverom têm uma temperatura escaldante, todos descem do navio e contemplam a visão de uma linda vila chamada Nifriron. 
+   Você gostaria de ir à Vila Nifriron? 
+   Ou reclama do calor e dá a ideia de irem para Ice Meteor?
+]]
 node.header= [[
     .    %{green}_%{white}    +     .  ______   .          .
  (      %{green}/|\%{white}      .    |      \      .   +
@@ -28,14 +32,14 @@ _   ___%{green}|||||%{white}__  _ \\--//    .          _
 _  ^      .  -    . \.|
 ]]
 
--- -- Create choices
--- table.insert(node.choices, Choice:new(
---     "cerverom.start",
---     "Para a Ilha de Cerverom"
--- ))
--- table.insert(node.choices, Choice:new(
---     "iceMeteor.start",
---     "Para a Ilha congelada de Ice Meteor"
--- ))
+-- Create choices
+table.insert(node.choices, Choice:new(
+    "cerverom.vila",
+    "Ir para linda Vila Nifriron"
+))
+table.insert(node.choices, Choice:new(
+    "iceMeteor.start",
+    "Para as montanhas congelada da Ilha Ice Meteor"
+))
 
 return node

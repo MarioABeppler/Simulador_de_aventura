@@ -8,28 +8,25 @@ local Choice = require("choice")
 -- Create node
 local node = Node:new(ID) ---@type Node
 node.title = "Uma Nova Aventura"
-node.description = "Após vários dias de bebedeira com seus amigos, vocês decidem se aventurar no mar como Grandes Piratas. Mas diga-me, para onde vocês vão primeiro? "
-node.header= [[%{magenta}
-,---.o          |             |                  |     
-`---..,-.-..   .|    ,---.,---|,---.,---.    ,---|,---.
-    ||| | ||   ||    ,---||   ||   ||        |   ||---'
-`---'`` ' '`---'`---'`---^`---'`---'`        `---'`---'
-                                                       
-                                         
-,---.                |                   
-|---|.    ,,---.,---.|--- .   .,---.,---.
-|   | \  / |---'|   ||    |   ||    ,---|
-`   '  `'  `---'`   '`---'`---'`    `---^
+node.description = [[
+Você é um aventureiro em um navio. 
+A tripulação do navio está em um dilema de para onde ir. 
+Os votos foram contados, só falta o seu. 
+A escolha está em suas mãos, para onde quer ir? ]]
+node.header= [[%{green}
+░▒█▀▀▀█░░▀░░█▀▄▀█░█░▒█░█░░█▀▀▄░█▀▄░▄▀▀▄░█▀▀▄░░░█▀▄░█▀▀░░░█▀▀▄░▄░░░▄░█▀▀░█▀▀▄░▀█▀░█░▒█░█▀▀▄░█▀▀▄
+░░▀▀▀▄▄░░█▀░█░▀░█░█░▒█░█░░█▄▄█░█░█░█░░█░█▄▄▀░░░█░█░█▀▀░░░█▄▄█░░█▄█░░█▀▀░█░▒█░░█░░█░▒█░█▄▄▀░█▄▄█
+░▒█▄▄▄█░▀▀▀░▀░░▒▀░░▀▀▀░▀▀░▀░░▀░▀▀░░░▀▀░░▀░▀▀░░░▀▀░░▀▀▀░░░▀░░▀░░░▀░░░▀▀▀░▀░░▀░░▀░░░▀▀▀░▀░▀▀░▀░░▀
 ]]
 
 -- Create choices
 table.insert(node.choices, Choice:new(
     "cerverom.start",
-    "Para a Ilha de Cerverom"
+    "Para as planices dezertas da Ilha de Cerverom"
 ))
 table.insert(node.choices, Choice:new(
     "iceMeteor.start",
-    "Para a Ilha congelada de Ice Meteor"
+    "Para as montanhas congelada da Ilha Ice Meteor"
 ))
 
 return node
